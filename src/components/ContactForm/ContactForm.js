@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import css from './ContactForm.module.css';
+import { addContact } from 'redux/contactsSlice';
 
-export default function ContactForm({ onSubmit }) {
+// export default function ContactForm({ onSubmit }) {
+export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleInputChange = eve => {
     const target = eve.currentTarget.name;
@@ -24,7 +29,8 @@ export default function ContactForm({ onSubmit }) {
 
   const handleSubmit = eve => {
     eve.preventDefault();
-    onSubmit({ name, number });
+    dispatch(addContact({ name, number }));
+    // onSubmit({ name, number });
     inputReset();
   };
 
