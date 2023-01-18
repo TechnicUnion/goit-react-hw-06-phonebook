@@ -8,7 +8,9 @@ import { deleteContact } from 'redux/contactsSlice';
 
 export default function App() {
   const filter = useSelector(state => state.filter);
-  const contacts = useSelector(state => state.contacts);
+  const contactsLict = useSelector(state => state.contacts);
+
+  // const contactsValue = Object.values(contacts);
   const dispatch = useDispatch();
 
   const changeFilter = eve => {
@@ -17,8 +19,9 @@ export default function App() {
 
   const getFilteredOutContacts = () => {
     const normalizeFilter = filter.toLowerCase();
-    return contacts.filter(person =>
-      person.name.toLowerCase().includes(normalizeFilter)
+
+    return contactsLict.contacts.filter(person =>
+      person.name.includes(normalizeFilter)
     );
   };
 
