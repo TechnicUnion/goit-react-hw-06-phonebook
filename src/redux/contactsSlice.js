@@ -30,21 +30,9 @@ const contactsSlice = createSlice({
       const index = state.findIndex(task => task.id === action.payload);
       state.splice(index, 1);
       window.localStorage.setItem('contacts', JSON.stringify(state));
-      //   prevState => [
-      //   ...prevState.filter(item => item.id !== contactsId),
-      // ]
     },
   },
 });
 
 export const { addContact, deleteContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
-
-//   const formSubmitHandler = data => {
-//     contacts.map(contact => contact.name).includes(data.name)
-//       ? alert(`${data.name} is already in contacts.`)
-//       : setContacts(prevState => [
-//           ...prevState,
-//           { id: nanoid(), name: data.name, number: data.number },
-//         ]);
-//   };

@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import PropTypes from 'prop-types';
 import css from './ContactForm.module.css';
 import { addContact } from 'redux/contactsSlice';
 
-// export default function ContactForm({ onSubmit }) {
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -30,7 +28,6 @@ export default function ContactForm() {
   const handleSubmit = eve => {
     eve.preventDefault();
     dispatch(addContact({ name, number }));
-    // onSubmit({ name, number });
     inputReset();
   };
 
@@ -73,7 +70,3 @@ export default function ContactForm() {
     </form>
   );
 }
-
-// ContactForm.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };
