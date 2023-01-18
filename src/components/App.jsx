@@ -25,7 +25,11 @@ export default function App() {
   const contacts = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
+  console.log(filter);
+
   const changeFilter = eve => {
+    // const form = eve.target;
+    console.log(eve.currentTarget.value);
     dispatch(filterValue(eve.currentTarget.value));
     // setFilter(eve.currentTarget.value);
   };

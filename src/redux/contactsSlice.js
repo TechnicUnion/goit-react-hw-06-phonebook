@@ -29,6 +29,7 @@ const contactsSlice = createSlice({
     deleteContact(state, action) {
       const index = state.findIndex(task => task.id === action.payload);
       state.splice(index, 1);
+      window.localStorage.setItem('contacts', JSON.stringify(state));
       //   prevState => [
       //   ...prevState.filter(item => item.id !== contactsId),
       // ]
